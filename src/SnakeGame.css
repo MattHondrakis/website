@@ -1,0 +1,113 @@
+.snake-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 18px 0 0 0;
+  transition: background 0.2s;
+}
+
+.snake-game-container.flash {
+  background: #ffeaea;
+  transition: background 0.1s;
+}
+
+.snake-score {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6c63ff;
+  margin-bottom: 10px;
+}
+
+.snake-pause-btn {
+  margin-bottom: 10px;
+  padding: 6px 18px;
+  background: linear-gradient(90deg, #6c63ff 0%, #48c6ef 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(60, 72, 100, 0.08);
+}
+
+.snake-pause-btn:hover {
+  background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
+}
+
+.snake-board {
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(60, 72, 100, 0.08);
+  border: 2px solid #e0e7ff;
+  overflow: hidden;
+}
+
+.snake-row {
+  display: flex;
+}
+
+.snake-cell {
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 1px solid #e0e7ff;
+  box-sizing: border-box;
+  transition: background 0.1s;
+}
+
+.snake-cell.head {
+  background: linear-gradient(135deg, #6c63ff 60%, #48c6ef 100%);
+  border: 1.5px solid #6c63ff;
+  border-radius: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.snake-cell.head::after {
+  content: none;
+}
+
+.snake-cell.body {
+  background: #b3b3e6;
+}
+
+.snake-cell.food {
+  background: radial-gradient(circle, #ffb347 60%, #ffcc80 100%);
+  border: 1.5px solid #ffb347;
+}
+
+.snake-gameover {
+  margin-top: 18px;
+  color: #e74c3c;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.snake-gameover button {
+  margin-top: 10px;
+  padding: 7px 18px;
+  background: linear-gradient(90deg, #6c63ff 0%, #48c6ef 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.snake-gameover button:hover {
+  background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
+}
+
+.snake-instructions {
+  margin-top: 10px;
+  color: #888;
+  font-size: 0.95rem;
+} 
