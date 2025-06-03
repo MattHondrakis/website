@@ -182,20 +182,33 @@ function GalaxyMenu() {
 
 function ShootingStars() {
   const [stars, setStars] = useState([]);
+  const visibleRef = useRef(document.visibilityState === 'visible');
+  useEffect(() => {
+    function handleVisibility() {
+      visibleRef.current = document.visibilityState === 'visible';
+      if (visibleRef.current) {
+        setStars([]); // Clear out old stars when tab becomes visible
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
   useEffect(() => {
     let timeout;
     function spawnStar() {
-      const angle = Math.random() * Math.PI / 3 - Math.PI / 6; // -30deg to +30deg
-      const startY = Math.random() * window.innerHeight * 0.7;
-      setStars(s => [
-        ...s,
-        {
-          id: Math.random(),
-          x: -100,
-          y: startY,
-          angle,
-        },
-      ]);
+      if (visibleRef.current) {
+        const angle = Math.random() * Math.PI / 3 - Math.PI / 6; // -30deg to +30deg
+        const startY = Math.random() * window.innerHeight * 0.7;
+        setStars(s => [
+          ...s,
+          {
+            id: Math.random(),
+            x: -100,
+            y: startY,
+            angle,
+          },
+        ]);
+      }
       timeout = setTimeout(spawnStar, 2000 + Math.random() * 4000);
     }
     spawnStar();
