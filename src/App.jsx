@@ -75,7 +75,7 @@ const sections = [
       <div>
         <h2>About</h2>
         <p>
-          Hi! I'm excited to share this website with you. Here you'll find a fun mini game, a bit about me, and ways to get in touch. This site is built with love and modern web technology.
+          Hi! I'm excited to share this website with you. This is a working environment where I can share my progress.
         </p>
       </div>
     ),
