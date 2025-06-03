@@ -97,7 +97,7 @@ const sections = [
       <div>
         <h2>Contact</h2>
         <p>
-          Want to get in touch? Email me at <a href="mailto:your@email.com">your@email.com</a>
+          Want to get in touch? Email me at <a href="mailto:hondrakma@gmail.com">hondrakma@gmail.com</a>
         </p>
       </div>
     ),
