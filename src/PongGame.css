@@ -9,39 +9,40 @@
 .pong-score {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #6c63ff;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .pong-pause-btn {
   margin-bottom: 10px;
   padding: 6px 18px;
-  background: linear-gradient(90deg, #6c63ff 0%, #48c6ef 100%);
+  background: rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(138, 43, 226, 0.4);
   color: #fff;
-  border: none;
-  border-radius: 6px;
+  border-radius: 20px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(60, 72, 100, 0.08);
+  transition: all 0.2s ease;
 }
 
 .pong-pause-btn:hover {
-  background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
+  background: rgba(138, 43, 226, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
 }
 
 .pong-canvas {
-  background: linear-gradient(135deg, #0a0f2c 0%, #1a223f 100%);
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(60, 72, 100, 0.08),
-              0 0 20px rgba(108, 99, 255, 0.2);
-  border: 2px solid #6c63ff;
+  background: rgba(13, 12, 27, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1.5px);
 }
 
 .pong-gameover {
   margin-top: 18px;
-  color: #e74c3c;
+  color: #ff6b6b;
   font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
@@ -50,23 +51,25 @@
 .pong-gameover button {
   margin-top: 10px;
   padding: 7px 18px;
-  background: linear-gradient(90deg, #6c63ff 0%, #48c6ef 100%);
+  background: rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(138, 43, 226, 0.4);
   color: #fff;
-  border: none;
-  border-radius: 6px;
+  border-radius: 20px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }
 
 .pong-gameover button:hover {
-  background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
+  background: rgba(138, 43, 226, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
 }
 
 .pong-instructions {
   margin-top: 10px;
-  color: #888;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.95rem;
   text-align: center;
   line-height: 1.5;

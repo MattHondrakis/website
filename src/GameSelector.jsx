@@ -38,22 +38,33 @@ export default function GameSelector() {
           </div>
         </div>
       </div>
-      {selectedGame && (
-        <button 
-          className="back-button"
-          onClick={() => setSelectedGame(null)}
-        >
-          Back to Selection
-        </button>
-      )}
     </div>
+  );
+
+  const renderBackButton = () => (
+    <button 
+      className="game-back-button"
+      onClick={() => setSelectedGame(null)}
+    >
+      ← Back to Game Selection
+    </button>
   );
 
   return (
     <div className="game-container">
       {!selectedGame && renderGameSelector()}
-      {selectedGame === 'snake' && <SnakeGame />}
-      {selectedGame === 'pong' && <PongGame />}
+      {selectedGame === 'snake' && (
+        <>
+          {renderBackButton()}
+          <SnakeGame />
+        </>
+      )}
+      {selectedGame === 'pong' && (
+        <>
+          {renderBackButton()}
+          <PongGame />
+        </>
+      )}
     </div>
   );
 } 

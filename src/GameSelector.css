@@ -152,4 +152,29 @@
   background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
   transform: translateY(-2px);
   box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+}
+
+.game-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.game-back-button:hover {
+  background: rgba(138, 43, 226, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
+}
+
+.game-back-button:active {
+  transform: translateY(0);
 } 

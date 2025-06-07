@@ -81,6 +81,70 @@ const sections = [
     ),
   },
   {
+    key: 'projects',
+    label: 'Projects',
+    content: (
+      <div>
+        <h2>Featured Projects</h2>
+        <div className="projects-grid">
+          <a 
+            href="https://github.com/MattHondrakis/DataAnalysis/blob/main/NYC%20House%20Prices/NYCHousePrices.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card"
+          >
+            <h3>NYC House Prices</h3>
+            <div className="project-tags">
+              <span className="tag">Data Analysis</span>
+              <span className="tag">Machine Learning</span>
+            </div>
+            <p>
+              Built GAM, Random Forest and Linear Regression models predicting NYC real estate prices. 
+              Extracted property types from home_details for enhanced modeling accuracy.
+            </p>
+          </a>
+          <a 
+            href="https://github.com/MattHondrakis/DataAnalysis/blob/main/Masters%20Project%20Job%20Placement/Masters-Project-Fall-Placement.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card"
+          >
+            <h3>Job Placement Analysis</h3>
+            <div className="project-tags">
+              <span className="tag">Data Science</span>
+              <span className="tag">Machine Learning</span>
+            </div>
+            <p>
+              Created Random Forest and Logistic Regression models achieving 85.3% accuracy and 0.932 AUC 
+              for job placement prediction.
+            </p>
+          </a>
+          <a 
+            href="https://github.com/MattHondrakis/DataAnalysis/blob/main/Coursera%20Case%20Study/Bikes.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card"
+          >
+            <h3>Coursera Case Study: Bikes</h3>
+            <div className="project-tags">
+              <span className="tag">Data Analysis</span>
+              <span className="tag">R</span>
+            </div>
+            <p>
+              Analyzed 6M+ rows of bike-sharing data to develop membership conversion strategies.
+              Used R for comprehensive exploratory data analysis.
+            </p>
+          </a>
+        </div>
+        <div className="github-cta">
+          <a href="https://github.com/MattHondrakis" target="_blank" rel="noopener noreferrer" className="github-link">
+            View More on GitHub
+          </a>
+        </div>
+      </div>
+    ),
+  },
+  {
     key: 'games',
     label: 'Games',
     content: (
@@ -103,83 +167,6 @@ const sections = [
     ),
   },
 ];
-
-function GalaxyMenu() {
-  const [openSection, setOpenSection] = useState(null);
-  const [hovered, setHovered] = useState(null);
-  const [focused, setFocused] = useState(null);
-  // Hardcoded visually pleasing positions for 3 clusters
-  const positions = [
-    { left: '70%', top: '10%' },    // top right - About
-    { left: '15%', top: '35%' },    // middle left - Snake
-    { left: '65%', top: '75%' },    // bottom right - Contact
-  ];
-  const tooltips = [
-    'Learn more about this site',
-    'Play the Snake Game!',
-    'Play the Pong Game!',
-    'Contact me',
-  ];
-  function handleKeyDown(e, sectionKey) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      setOpenSection(sectionKey);
-    }
-  }
-  return (
-    <div className="galaxy-orbit-menu" style={{ width: '100%', height: '60vh', minHeight: 320, position: 'relative' }}>
-      {sections.map((section, i) => {
-        const pos = positions[i];
-        const angle = 0; // not used for label/line now
-        const isActive = hovered === section.key || focused === section.key;
-        return (
-          <div
-            key={section.key}
-            className={
-              'galaxy-orbit-star' +
-              (openSection === section.key ? ' active' : '')
-            }
-            style={{ left: pos.left, top: pos.top, position: 'absolute' }}
-            onMouseEnter={() => setHovered(section.key)}
-            onMouseLeave={() => setHovered(null)}
-            onFocus={() => setFocused(section.key)}
-            onBlur={() => setFocused(null)}
-            onClick={() => setOpenSection(section.key)}
-            onKeyDown={e => handleKeyDown(e, section.key)}
-            tabIndex={0}
-            role="button"
-            aria-label={tooltips[i]}
-            aria-pressed={openSection === section.key}
-          >
-            <StarCluster />
-            <div className="galaxy-orbit-ring" />
-            <div
-              className={
-                'galaxy-orbit-line' + (isActive ? ' visible' : '')
-              }
-              style={{ width: 40, left: '100%', top: '50%', transform: 'translateY(-50%)' }}
-            />
-            <span
-              className={
-                'galaxy-orbit-label' + (isActive ? ' visible' : '')
-              }
-              style={{ left: 'calc(100% + 24px)', top: '50%', transform: 'translateY(-50%)' }}
-            >
-              {section.label}
-            </span>
-          </div>
-        );
-      })}
-      {openSection && (
-        <div className="galaxy-modal" onClick={() => setOpenSection(null)}>
-          <div className="galaxy-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="galaxy-modal-close" onClick={() => setOpenSection(null)}>&times;</button>
-            {sections.find(s => s.key === openSection).content}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
 
 function ShootingStars() {
   const [stars, setStars] = useState([]);
@@ -253,7 +240,13 @@ function App() {
     <>
       <Starfield />
       <ShootingStars />
-      <GalaxyMenu />
+      <div className="content-container">
+        {sections.map(section => (
+          <section key={section.key} className={`section ${section.key}-section`}>
+            {section.content}
+          </section>
+        ))}
+      </div>
       <footer className="footer">
         &copy; 2025 Matthew Hondrakis.
       </footer>
