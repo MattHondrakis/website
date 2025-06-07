@@ -1,0 +1,155 @@
+.game-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.game-selector {
+  padding: 20px;
+  text-align: center;
+}
+
+.game-selector h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+.game-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.game-option {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #0a0f2c 0%, #1a223f 100%);
+  border: 2px solid rgba(108, 99, 255, 0.3);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-option:hover, .game-option.selected {
+  border-color: #6c63ff;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+}
+
+.game-option::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%);
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.game-option-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.game-icon {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+/* Snake icon animation */
+.snake-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: snakeMove 2s infinite ease-in-out;
+}
+
+.snake-segment {
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes snakeMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+/* Pong icon animation */
+.pong-icon {
+  display: flex;
+  align-items: center;
+}
+
+.pong-paddle {
+  width: 8px;
+  height: 40px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.pong-ball {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin-left: 20px;
+  animation: pongBounce 1.5s infinite ease-in-out;
+}
+
+@keyframes pongBounce {
+  0%, 100% { transform: translate(0, -15px); }
+  50% { transform: translate(0, 15px); }
+}
+
+.game-option span {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #6c63ff 0%, #48c6ef 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+} 

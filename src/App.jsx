@@ -1,5 +1,5 @@
 import './App.css';
-import SnakeGame from './SnakeGame';
+import GameSelector from './GameSelector';
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 
 function Starfield() {
@@ -43,7 +43,7 @@ function Starfield() {
   return <canvas ref={canvasRef} className="starfield" />;
 }
 
-function StarCluster({ count = 12, radius = 36 }) {
+function StarCluster({ count = 6, radius = 36 }) {
   // Generate random positions for dots in a cluster only once
   const dots = useMemo(() => Array.from({ length: count }, (_, i) => {
     const angle = Math.random() * 2 * Math.PI;
@@ -75,18 +75,18 @@ const sections = [
       <div>
         <h2>About</h2>
         <p>
-          Hi! I'm excited to share this website with you. This is a working environment where I can share my progress.
+          Hi! I'm prototyping a website. This is a working environment where I can share my progress.
         </p>
       </div>
     ),
   },
   {
-    key: 'game',
-    label: 'Game',
+    key: 'games',
+    label: 'Games',
     content: (
       <div>
-        <h2>Mini Game</h2>
-        <SnakeGame />
+        <h2>Arcade Games</h2>
+        <GameSelector />
       </div>
     ),
   },
@@ -110,13 +110,15 @@ function GalaxyMenu() {
   const [focused, setFocused] = useState(null);
   // Hardcoded visually pleasing positions for 3 clusters
   const positions = [
-    { left: '70%', top: '10%' },    // top right
-    { left: '15%', top: '50%' },    // middle left
-    { left: '65%', top: '75%' },    // bottom right
+    { left: '70%', top: '10%' },    // top right - About
+    { left: '15%', top: '35%' },    // middle left - Snake
+    { left: '15%', top: '65%' },    // middle left - Pong
+    { left: '65%', top: '75%' },    // bottom right - Contact
   ];
   const tooltips = [
     'Learn more about this site',
     'Play the Snake Game!',
+    'Play the Pong Game!',
     'Contact me',
   ];
   function handleKeyDown(e, sectionKey) {
