@@ -112,7 +112,6 @@ function GalaxyMenu() {
   const positions = [
     { left: '70%', top: '10%' },    // top right - About
     { left: '15%', top: '35%' },    // middle left - Snake
-    { left: '15%', top: '65%' },    // middle left - Pong
     { left: '65%', top: '75%' },    // bottom right - Contact
   ];
   const tooltips = [
@@ -256,7 +255,7 @@ function App() {
       <ShootingStars />
       <GalaxyMenu />
       <footer className="footer">
-        &copy; 2024 Your Name. All rights reserved.
+        &copy; 2025 Matthew Hondrakis.
       </footer>
     </>
   );
