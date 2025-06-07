@@ -6,8 +6,8 @@ const CANVAS_HEIGHT = 320;
 const PADDLE_HEIGHT = 60;
 const PADDLE_WIDTH = 10;
 const BALL_SIZE = 8;
-const INITIAL_BALL_SPEED = 2;
-const SPEED_INCREASE = 0.05;
+const INITIAL_BALL_SPEED = 3;
+const SPEED_INCREASE = 0.075;
 
 export default function PongGame() {
   const canvasRef = useRef(null);
